@@ -1,0 +1,113 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #f4f4f4;
+  width: 1000px;
+  height: 550px;
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+  background: #2b6777;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  padding-left: 50px;
+  letter-spacing: 1px;
+}
+
+.cell {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  width: 25%;
+  height: 160px;
+  margin: 30px;
+  margin-bottom: 10px;
+}
+
+.inner-cell {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: left;
+}
+
+.button-cell {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  width: 87%;
+  height: 200px;
+  margin: 30px;
+}
+
+.container-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: black;
+  margin: 0px;
+  margin-left: 36px;
+  margin-top: 20px;
+}
+
+.container-text {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #545454;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 36px;
+}
+
+.button {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  width: 80%;
+  height: 32px;
+  align-self: center;
+}
+
+.loan-button {
+  background-color: #52ab98;
+}
+
+.bank-button {
+  background-color: #9cc2df;
+  width: 40%;
+}
+
+.work-button {
+  background-color: #544f96;
+  width: 40%;
+}
