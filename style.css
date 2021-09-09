@@ -36,7 +36,7 @@ body {
   background-color: #fdfdfd;
   border-radius: 10px;
   width: 25%;
-  height: 160px;
+  height: 11rem;
   margin: 30px;
   margin-bottom: 10px;
 }
@@ -59,7 +59,10 @@ body {
 
 .product-cell {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   background-color: #fdfdfd;
   border-radius: 10px;
   width: 87%;
@@ -98,16 +101,62 @@ body {
   align-self: center;
 }
 
-.loan-button {
-  background-color: #52ab98;
+.product-name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: black;
+  margin: 0rem;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
 }
 
-.bank-button {
-  background-color: #9cc2df;
-  width: 40%;
+.image-container {
+  display: flex;
+  background-color: #545454;
+  height: 10rem;
+  width: 12rem;
 }
 
-.work-button {
-  background-color: #544f96;
-  width: 40%;
+.productinfo-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 10rem;
+  width: 20rem;
+}
+
+.price-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  height: 10rem;
+  width: 12rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  color: black;
+}
+
+.laptop-select {
+  font-family: "Roboto", sans-serif;
+  width: 10rem;
+  height: 1.5rem;
+  border-radius: 10px;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.laptop-dropdown-cont {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #545454;
+  list-style-type: none;
 }

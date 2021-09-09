@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,11 +22,11 @@
             <div class="inner-cell">
                 <p class="container-text">
                     Balance &emsp;&emsp;&emsp;&emsp;
-                    <span>
+                    <span id="bank-balance">
                         200 Kr.
                     </span> 
                 </p>
-                <button class="button loan-button">
+                <button class="button" style="background-color: #52ab98;" id="loan">
                     Get a Loan
                 </button>
             </div>
@@ -38,15 +38,15 @@
             <div class="inner-cell">
                 <p class="container-text">
                     Pay &emsp;&emsp;&emsp;&emsp;
-                    <span>
+                    <span id="work-balance">
                         0 Kr.
                     </span> 
                 </p>
-                <div class="button-cell">
-                    <button class="button bank-button">
+                <div class="button-cell" id="transfer">
+                    <button class="button" style="background-color: #9cc2df; width: 40%;" id="bank">
                         Bank
                     </button>
-                    <button class="button work-button">
+                    <button class="button" style="background-color: #544f96; width: 40%;" id="work">
                         Work
                     </button>
                 </div>
@@ -57,8 +57,43 @@
             <p class="container-title">
                 Laptops
             </p>
+            <div class="laptop-dropdown-cont">
+                <select class="laptop-select" name="laptops" id="laptops">
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                <p class="container-text" style="font-weight: 600; font-size: 14px;">
+                    Features:
+                </p>
+                <ul class="list"">
+                    <li>specs</li>
+                    <li>specs</li>
+                    <li>specs</li>
+                  </ul>
+            </div>
         </div>
-        <div class="product-cell"></div>
+        <div class="product-cell">
+            <div class="image-container"></div>
+            <div class="productinfo-container">
+                <p class="product-name" id="laptop-name">
+                    Intol Celeroon E10
+                </p>
+                <p class="container-text" id="laptop-description">
+                    Info about laptop here
+                </p>
+            </div>
+            <div class="price-container">
+                <p id="laptop-price">
+                    1500 NOK
+                </p>
+                <button class="button" style="background-color: #537e87" id="buy">
+                    Buy now
+                </button>
+            </div>
+        </div>
     </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
