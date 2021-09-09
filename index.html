@@ -26,8 +26,17 @@
                         200 Kr.
                     </span> 
                 </p>
-                <button class="button" style="background-color: #52ab98;" id="loan">
+                <p class="container-text">
+                    Loan &emsp;&emsp;&emsp;&emsp;
+                    <span id="loan-balance">
+                        100 Kr.
+                    </span> 
+                </p>
+                <button class="button" style="background-color: #52ab98;" id="get-loan">
                     Get a Loan
+                </button>
+                <button class="button" style="background-color: #52ab98;" id="repay-loan">
+                    Repay Loan
                 </button>
             </div>
         </div>
@@ -58,12 +67,7 @@
                 Laptops
             </p>
             <div class="laptop-dropdown-cont">
-                <select class="laptop-select" name="laptops" id="laptops">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
+                <select class="laptop-select" name="laptops" id="laptops"></select>
                 <p class="container-text" style="font-weight: 600; font-size: 14px;">
                     Features:
                 </p>
@@ -77,15 +81,15 @@
         <div class="product-cell">
             <div class="image-container"></div>
             <div class="productinfo-container">
-                <p class="product-name" id="laptop-name">
+                <p class="product-name" id="name">
                     Intol Celeroon E10
                 </p>
-                <p class="container-text" id="laptop-description">
+                <p class="container-text" id="description">
                     Info about laptop here
                 </p>
             </div>
             <div class="price-container">
-                <p id="laptop-price">
+                <p id="price">
                     1500 NOK
                 </p>
                 <button class="button" style="background-color: #537e87" id="buy">
