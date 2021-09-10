@@ -170,3 +170,7 @@ body {
   margin-left: 4rem;
   width: 2rem;
 }
+
+.hidden {
+  display: none;
+}

@@ -24,7 +24,7 @@
                     Balance
                     <input type="text" class="input-style" id="bank-balance" value="0">Kr.</input>
                 </p>
-                <p class="container-text">
+                <p class="hidden" id="loan-amount">
                     Loan
                     <input type="text" class="input-style" id="loan-balance" value="0" style="margin-left: 5.3rem">Kr.</input> 
                 </p>
@@ -32,7 +32,7 @@
                     <button onclick="getLoan()" class="button" style="background-color: #52ab98; width: 40%;">
                         Get a loan
                     </button>
-                    <button onclick="repayLoan()" class="button" style="background-color: #E29235; width: 40%;">
+                    <button onclick="repayLoan()" id="repayloan-button" class="hidden" style="background-color: #E29235; width: 40%;">
                         Repay loan
                     </button>
                 </div>               
@@ -75,19 +75,13 @@
             </div>
         </div>
         <div class="product-cell">
-            <div class="image-container"></div>
+            <div class="image-container" id="image"></div>
             <div class="productinfo-container">
-                <p class="product-name" id="name">
-                    Intol Celeroon E10
-                </p>
-                <p class="container-text" id="description">
-                    Info about laptop here
-                </p>
+                <p class="product-name" id="name"></p>
+                <p class="container-text" id="description"></p>
             </div>
             <div class="price-container">
-                <p id="price">
-                    1500 NOK
-                </p>
+                <p id="price"></p>
                 <button onclick="buyLaptop()" class="button" style="background-color: #537e87">
                     Buy now
                 </button>
