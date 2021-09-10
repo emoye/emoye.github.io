@@ -7,6 +7,8 @@ const priceElement = document.getElementById("price");
 const nameElement = document.getElementById("name");
 const descriptionElement = document.getElementById("description");
 const imageElement = document.getElementById("image");
+const buyElement = document.getElementById("buy");
+const specsElement = document.getElementById("specs");
 let laptops = [];
 
 // bool to check if person has bought laptop or not
@@ -35,18 +37,44 @@ const addLaptops = (laptops) => {
     priceElement.innerText = laptops[0].price + " KR";
     descriptionElement.innerText = laptops[0].description;
     nameElement.innerText = laptops[0].title;
-    imageElement.innerText = laptops[0].image;
+    imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/"+laptops[0].image;
+    // if image does not work, show image of kitten
+    imageElement.onerror = function() { 
+        alert("Image of " + selectedLaptop.title + " not found. Enjoy this image of a cat :)")
+        imageElement.src = "https://www.meme-arsenal.com/memes/bbbb950281d00566c68f1d23ff98fd1b.jpg"; 
+    }
+
+    // loop through specs
+    for (const spec of laptops[0].specs) {
+        const specItem = document.createElement("li");
+        specItem.innerText = spec;
+        specsElement.appendChild(specItem);
+    }
 }
 
 // function to change laptop and show corresponding values
 const selectLaptopChange = e => {
+    specsElement.innerHTML = "";
     const selectedLaptop = laptops[e.target.selectedIndex];
     priceElement.innerText = selectedLaptop.price + " KR";
     nameElement.innerText = selectedLaptop.title;
     descriptionElement.innerText = selectedLaptop.description;
-    imageElement.innerText = selectedLaptop.image;
+    imageElement.src = "https://noroff-komputer-store-api.herokuapp.com/" + selectedLaptop.image;
+    // if image does not work, show image of kitten
+    imageElement.onerror = function() { 
+        alert("Image of " + selectedLaptop.title + " not found. Enjoy this image of a cat :)")
+        imageElement.src = "https://www.meme-arsenal.com/memes/bbbb950281d00566c68f1d23ff98fd1b.jpg"; 
+    }
+
+    // loop through specs
+    for (const spec of selectedLaptop.specs) {
+        const specItem = document.createElement("li");
+        specItem.innerText = spec;
+        specsElement.appendChild(specItem);
+    }
 }
 
+// Event listener
 laptopsElement.addEventListener("change", selectLaptopChange);
 
 // function to get a loan
@@ -132,13 +160,19 @@ function transferMoney() {
     }
 }
 
-// // function to buy a laptop
-// function buyLaptop() {
-//     // check if person has enough money to buy laptop
-//     if (parseFloat(bankBalanceElement.value) >= parseFloat(priceElement.value)) {
-//         alert("You are now the proud new owner of " + laptop.title);
-//         bankBalanceElement.value = parseFloat(bankBalanceElement.value) - parseFloat(priceElement.value);
-//     } else {
-//         alert("You do not have enough money to buy " + laptop.title + " :( Get working or take a loan!")
-//     }
-// }
+// function to buy a laptop
+const buyLaptop = () => {
+    const selectedLaptop = laptops[laptopsElement.selectedIndex];
+    // check if person has enough money to buy laptop
+    if (parseFloat(bankBalanceElement.value) >= selectedLaptop.price) {
+        alert("You are now the proud new owner of " + selectedLaptop.title);
+        bankBalanceElement.value = parseFloat(bankBalanceElement.value) - parseFloat(selectedLaptop.price);
+        hasBoughtLaptop = true;
+    } else {
+        alert("You do not have enough money to buy " + selectedLaptop.title + " :( Get working or take a loan!")
+    }
+
+}
+
+// event listener
+buyElement.addEventListener("click", buyElement)
