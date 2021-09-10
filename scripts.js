@@ -147,16 +147,27 @@ function transferMoney() {
     // check if there is money in work balance
     if (parseFloat(workBalanceElement.value) > 0) {
         // check if person has outstanding loan
-        if (parseFloat(loanBalanceElement.value) <= 0) {
+        // if there is outstanding loan, 10% of salary must go to paying of loan
+        if (parseFloat(loanBalanceElement.value) > 0) {
+            const tenPercent = 0.10 * parseFloat(workBalanceElement.value);
+            // check if loan balance becomes negative or not
+            if (parseFloat(loanBalanceElement.value) - tenPercent >= 0) {
+                loanBalanceElement.value = parseFloat(loanBalanceElement.value) - tenPercent;
+                bankBalanceElement.value = parseFloat(bankBalanceElement.value) + (parseFloat(workBalanceElement.value) - tenPercent);
+                workBalanceElement.value = 0;
+            } else {
+                // if 10% of work blanace is more than loan, find money left after paying down loan
+                const difference = Math.abs(parseFloat(loanBalanceElement.value) - tenPercent);
+                bankBalanceElement.value = parseFloat(bankBalanceElement.value) + (parseFloat(workBalanceElement.value) - tenPercent) + difference;
+                workBalanceElement.value = 0;
+                loanBalanceElement.value = 0;
+            }
+        // if no outstanding loan
+        } else {
             bankBalanceElement.value = parseFloat(bankBalanceElement.value) + parseFloat(workBalanceElement.value);
             workBalanceElement.value = 0;
-        // if there is outstanding loan, 10% of salary must go to paying of loan
-        } else {
-            const temp = 0.10 * parseFloat(workBalanceElement.value);
-            workBalanceElement.value = 0;
-            bankBalanceElement.value = parseFloat(bankBalanceElement.value) + (parseFloat(workBalanceElement.value) - temp);
-            loanBalanceElement.value = parseFloat(loanBalanceElement.value) - temp;
-        }       
+        }
+    // if there is no money in work balance       
     } else {
         alert("You have no money to transfer! Get working")
     }
