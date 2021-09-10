@@ -21,23 +21,21 @@
             </p>
             <div class="inner-cell">
                 <p class="container-text">
-                    Balance &emsp;&emsp;&emsp;&emsp;
-                    <span id="bank-balance">
-                        200 Kr.
-                    </span> 
+                    Balance
+                    <input type="text" class="input-style" id="bank-balance" value="0">Kr.</input>
                 </p>
                 <p class="container-text">
-                    Loan &emsp;&emsp;&emsp;&emsp;
-                    <span id="loan-balance">
-                        100 Kr.
-                    </span> 
+                    Loan
+                    <input type="text" class="input-style" id="loan-balance" value="0" style="margin-left: 5.3rem">Kr.</input> 
                 </p>
-                <button class="button" style="background-color: #52ab98;" id="get-loan">
-                    Get a Loan
-                </button>
-                <button class="button" style="background-color: #52ab98;" id="repay-loan">
-                    Repay Loan
-                </button>
+                <div class="button-cell" id="transfer">
+                    <button onclick="getLoan()" class="button" style="background-color: #52ab98; width: 40%;">
+                        Get a loan
+                    </button>
+                    <button onclick="repayLoan()" class="button" style="background-color: #E29235; width: 40%;">
+                        Repay loan
+                    </button>
+                </div>               
             </div>
         </div>
         <div class="cell">
@@ -46,16 +44,14 @@
             </p>
             <div class="inner-cell">
                 <p class="container-text">
-                    Pay &emsp;&emsp;&emsp;&emsp;
-                    <span id="work-balance">
-                        0 Kr.
-                    </span> 
+                    Pay 
+                    <input type="text" id="work-balance" value="0" class="input-style">Kr.</input>
                 </p>
-                <div class="button-cell" id="transfer">
-                    <button class="button" style="background-color: #9cc2df; width: 40%;" id="bank">
+                <div class="button-cell" style="margin-top: 2.6rem">
+                    <button onclick="transferMoney()" class="button" style="background-color: #9cc2df; width: 40%;">
                         Bank
                     </button>
-                    <button class="button" style="background-color: #544f96; width: 40%;" id="work">
+                    <button onclick="increasePay()" class="button" style="background-color: #544f96; width: 40%;">
                         Work
                     </button>
                 </div>
@@ -92,7 +88,7 @@
                 <p id="price">
                     1500 NOK
                 </p>
-                <button class="button" style="background-color: #537e87" id="buy">
+                <button onclick="buyLaptop()" class="button" style="background-color: #537e87">
                     Buy now
                 </button>
             </div>
