@@ -92,25 +92,27 @@ function getLoan()
     else {
         const promptText = "How much would you like to loan?";
         let amount = prompt(promptText);
-    
         while (true) {
-            // check if person can loan inputted amount
-            if (parseFloat(amount) > (parseFloat(bankBalanceElement.value)*2)) {
-                amount = prompt("You cannot loan more than double the amount for your bank balance. " + "The amount you can currently loan is " + (parseFloat(bankBalanceElement.value))*2 + " kr. \n" + promptText);
-            } else if (parseFloat(amount) <= 0) {
-                amount = prompt("You cannot loan 0 kr or less. " + "The amount you can currently loan is " + (parseFloat(bankBalanceElement.value))*2 + " kr. \n" + promptText);
+            // check if user inputted number
+            if(!isNaN(parseFloat(amount))) {
+                // check if person can loan inputted amount
+                if (parseFloat(amount) > (parseFloat(bankBalanceElement.value)*2)) {
+                    amount = prompt("You cannot loan more than double the amount for your bank balance. " + "The amount you can currently loan is " + (parseFloat(bankBalanceElement.value))*2 + " kr. \n" + promptText);
+                } else if (parseFloat(amount) <= 0) {
+                    amount = prompt("You cannot loan 0 kr or less. " + "The amount you can currently loan is " + (parseFloat(bankBalanceElement.value))*2 + " kr. \n" + promptText);
+                } else {
+                    bankBalanceElement.value = parseFloat(bankBalanceElement.value) + parseFloat(amount);
+                    loanBalanceElement.value = parseFloat(amount);
+                    hasTakenLoan = true;
+                    // make reapy loan button and loan amount appear
+                    document.getElementById("repayloan-button").className = 'button'; 
+                    document.getElementById("loan-amount").className = 'container-text'; 
+                    break;
+                }  
+            } else {
+                amount = prompt("You need to enter a number. \n" + promptText);
             }
-            else {
-                bankBalanceElement.value = parseFloat(bankBalanceElement.value) + parseFloat(amount);
-                loanBalanceElement.value = parseFloat(amount);
-                alert("Wohoo you got a loan of " + amount + " kr! Don't forget to pay it back..");
-                hasTakenLoan = true;
-                // make reapy loan button and loan amount appear
-                document.getElementById("repayloan-button").className = 'button'; 
-                document.getElementById("loan-amount").className = 'container-text'; 
-                break;
-            }
-        }
+        }    
     }
 }
 
@@ -145,15 +147,15 @@ function transferMoney() {
     // check if there is money in work balance
     if (parseFloat(workBalanceElement.value) > 0) {
         // check if person has outstanding loan
-        if (parseFloat(loanBalanceElement.value) === 0) {
+        if (parseFloat(loanBalanceElement.value) <= 0) {
             bankBalanceElement.value = parseFloat(bankBalanceElement.value) + parseFloat(workBalanceElement.value);
             workBalanceElement.value = 0;
         // if there is outstanding loan, 10% of salary must go to paying of loan
         } else {
             const temp = 0.10 * parseFloat(workBalanceElement.value);
             workBalanceElement.value = 0;
-            loanBalanceElement.value = parseFloat(loanBalanceElement.value) - temp;
             bankBalanceElement.value = parseFloat(bankBalanceElement.value) + (parseFloat(workBalanceElement.value) - temp);
+            loanBalanceElement.value = parseFloat(loanBalanceElement.value) - temp;
         }       
     } else {
         alert("You have no money to transfer! Get working")
@@ -171,7 +173,6 @@ const buyLaptop = () => {
     } else {
         alert("You do not have enough money to buy " + selectedLaptop.title + " :( Get working or take a loan!")
     }
-
 }
 
 // event listener
