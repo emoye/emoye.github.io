@@ -165,6 +165,12 @@ function transferMoney() {
                 loanBalanceElement.value = parseFloat(loanBalanceElement.value) - tenPercent;
                 bankBalanceElement.value = parseFloat(bankBalanceElement.value) + (parseFloat(workBalanceElement.value) - tenPercent);
                 workBalanceElement.value = 0;
+                // check if loan balance is 0 (then loan is payed down)
+                if (parseFloat(loanBalanceElement.value) === 0) {
+                    alert("Congratulations, you repayed all your loan!!")
+                    // hide repay loan button
+                    document.getElementById("repayloan-button").className = 'hidden'; 
+                }
             } else {
                 // if 10% of work blanace is more than loan, find money left after paying down loan
                 const difference = Math.abs(parseFloat(loanBalanceElement.value) - tenPercent);
